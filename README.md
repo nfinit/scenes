@@ -1,5 +1,5 @@
-`scenes` is a work-in-progress online hierarchical photo album management system. This project is being developed mainly to manage travel photography, but can reasonably be applied to any other subject.
+**scenes** is a work-in-progress online hierarchical photo album management system. This project is being developed mainly to manage travel photography, but can reasonably be applied to any other subject.
 
-## Feature outline
+Work on _scenes_ is very roughly inspired by Dave Flack's [World Photo Album](https://www.qsl.net/ah6hy/photos.html), one of my favorite travel websites for the volume of interesting content it presents in a simple, brief, legacy-friendly format. Like Flack's site, _scenes_ aims to present its content in a simple and compatible manner, but also in a way that is consistent, flexible and easy to maintain on the backend.
 
-`scenes` is very roughly inspired by Dave Flack's [World Photo Album](https://www.qsl.net/ah6hy/photos.html), one of my favorite travel websites for the volume of interesting content it presents in a simple, brief format. `scenes` aims to be just as simple, but also much more flexible and maintainable on the backend.
+At a fundamental level, _scenes_ operates on collections of assets. These collections can be completely empty with only metadata, or include many assets. Collections are further organized in a hierarchical fashion, with each collection capable of having multiple "children" while itself being the "child" of multiple collections. Empty collections in this scheme are best understood as "roots" that can be used to aggregate child collections.
