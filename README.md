@@ -9,3 +9,5 @@ All assets in _scenes_ must be associated with a collection, and if unspecified 
 In line with most of my other projects, _scenes_ also emphasizes maximal compatibility with legacy clients through use of simple, semantic HTML that is also highly stylable.
 
 Assets can be either manually added or uploaded through the web. Site owners who do not wish to use SSL but still wish to administrate the site from a browser can instead use client whitelists to allow only their local network to access administrative functionality.
+
+To allow for dynamic sharing of album content, _scenes_ implements a simple API for getting content from collections or aggregates of collections.
