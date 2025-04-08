@@ -17,3 +17,11 @@ Fundamentally, _Scenes_ operates on collections of assets organized in a hierarc
 Assets and collections are managed through an authenticated web interface. Album owners who do not wish to use SSL (for legacy reasons) can reduce risk through optional IP whitelisting that can allow them to limit authentication only to specific clients (or a range of clients) on a local network.
 
 To allow for integrating content in albums in other projects, _Scenes_ implements a basic API that can be used to get individual assets or entire collections.
+
+## Implementation
+
+_Scenes_ is designed as a simple PHP/SQLite-backed MVC application with this essential directory structure:
+- `pub`: Public site, API endpoints and related files
+- `sys`: System files (models, views, controllers and related)
+- `config`: Site configuration files
+- `data`: Site data (created automatically to host assets and the system database)
