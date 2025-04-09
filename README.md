@@ -1,10 +1,10 @@
 # Scenes
 
-_the universal online hierarchical album_
+_the universal online hierarchical data album_
 
 -----------------------------------------
 
-**Scenes** is an online hierarchical album management system, which organizes assets into collections and displays them in a linear format with or without descriptions and other metadata. It is designed mainly with photography in mind, but can also be applied to almost any other use case involving listing and describing files and data.
+**Scenes** is an online hierarchical album management system, which organizes assets into collections and displays them in a linear format with or without descriptions and other metadata. It is designed mainly with photography in mind, but can also be applied to almost any other use case involving listing and describing arbitrary files and data.
 
 _Scenes_ is roughly inspired by Dave Flack's [World Photo Album](https://www.qsl.net/ah6hy/photos.html), a simple, legacy-friendly website that presents photos he has taken during his travels in a linear format with occasional image descriptions or sections. Like Flack's site, _Scenes_ aims to present content in a simple and compatible manner, but also in a way that is more consistent across pages, flexible and easy to maintain on the backend.
 
