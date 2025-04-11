@@ -1,7 +1,11 @@
 Scenes data model
 -----------------
 
-This directory contains system definitions for the Scenes data model.
+This directory contains system definitions for the Scenes data model. Scenes
+is designed to be backed by an SQLite database for ease and simplicity, with
+the a highly normalized database where each table contains only the most
+essential fields for its purpose. This ensures that new features, should
+they be needed, can be added with new tables attached to the core structures.
 
 ## Structures
 
@@ -31,7 +35,7 @@ Collections can have three effective visibility states:
 
 Collections link together using a separate join table to allow for arbitrary
 numbers of children and parents. In addition to this, collection links can also
-specify a display mode:
+force a sort order (an ascending integer value) and specify a display mode:
 - **Linked** collections show only as text links when their parent is viewed
 - **Embedded** collections display their contents within the parent view as if
   they were part of the parent collection itself, optionally with or without
@@ -42,6 +46,9 @@ embedded in other collections, for example a photo album may display as a grid
 or a proper gallery of photos displayed in a linear fashion with a description
 for each one, while an album of binary files may simply want to display them in
 a tabular format.
+
+Collections can be cloned, either by metadata only or also including their
+asset links. Likewise, asset links can be copied between existing collections.
 
 Because the collection is the primary means through which assets are organized
 and displayed, it can be considered the most fundamental unit of a Scenes
@@ -63,7 +70,8 @@ Alongside collections, _assets_ are the other key fundamental structure of the
 Scenes model, representing a file of any format. Though Scenes is primarily
 intended for use as a photo album, it can also be used to aggregate and
 organize other kinds of files as well. Assets are stored by Scenes in a common 
-pool that assigns them a unique ID and records their location on the host.
+pool that assigns them a unique ID, records their location on the host and also
+records a checksum to support export and import operations.
 
 Any asset can belong to any number of collections, and have their own unique
 description and display name (along with any other client-facing metadata) 
