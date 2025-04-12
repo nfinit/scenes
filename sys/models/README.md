@@ -76,3 +76,13 @@ records a checksum to support export and import operations.
 Any asset can belong to any number of collections, and have their own unique
 description and display name (along with any other client-facing metadata) 
 within that collection context.
+
+Within a collection context, assets can be further grouped together in a sort
+of "sub-collection" such that they will be displayed together with common
+metadata when the collection is viewed as if they were a single asset. This
+group structure includes:
+- A sort order, which will either be `NULL` or otherwise the smallest value of
+  any of the grouped assets.
+- A view mode specifier that determines the way the assets will be presented,
+  for example in standard linear fashion, side-by-side, or even stitched 
+  together in an image map. 
