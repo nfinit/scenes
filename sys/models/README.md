@@ -85,4 +85,11 @@ group structure includes:
   any of the grouped assets.
 - A view mode specifier that determines the way the assets will be presented,
   for example in standard linear fashion, side-by-side, or even stitched 
-  together in an image map. 
+  together in an image map.
+
+## Implementation
+
+Scenes' data implementation takes a highly normalized approach with separate 
+tables for each core entity and its relationships, with the goal of allowing 
+for a simple but extensible system, where new functionality can be added
+without the overhead of migration or transformation of existing data. 
