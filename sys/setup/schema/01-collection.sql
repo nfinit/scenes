@@ -83,3 +83,51 @@ CREATE TABLE relationship_display_mode_configuration (
 -- Indexes for faster lookups
 CREATE INDEX idx_collection_relationships_parent ON collection_relationships(parent_id);
 CREATE INDEX idx_collection_relationships_child ON collection_relationships(child_id);
+
+-- Initialize system collections
+
+-- Create root collection (home page)
+INSERT INTO collections (
+    slug,
+    name,
+    title,
+    description,
+    protected
+) VALUES (
+    'root',
+    'Home',
+    'Welcome to Scenes',
+    'This is the main page of your Scenes album. You can edit this description to add your own content.',
+    0
+);
+
+-- Create assets collection (hidden repository for all uploads)
+INSERT INTO collections (
+    slug,
+    name,
+    description,
+    protected
+) VALUES (
+    'assets',
+    'Assets',
+    'This is a system collection that contains all uploaded assets. It is not meant to be publicly browsable.',
+    1
+);
+
+-- Set up the default display mode for the root collection
+INSERT INTO collection_display_mode_configuration (
+    collection_id,
+    display_mode_id
+) VALUES (
+    1, -- Root collection (assuming it's ID 1)
+    (SELECT id FROM collection_display_modes WHERE name = 'linear')
+);
+
+-- Set up the default display mode for the assets collection
+INSERT INTO collection_display_mode_configuration (
+    collection_id,
+    display_mode_id
+) VALUES (
+    2, -- Assets collection (assuming it's ID 2)
+    (SELECT id FROM collection_display_modes WHERE name = 'grid')
+);
