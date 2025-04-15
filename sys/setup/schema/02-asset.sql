@@ -38,20 +38,20 @@ CREATE TABLE asset_collection_membership (
     UNIQUE(asset_id, collection_id), -- Each asset can only be in a collection once
     FOREIGN KEY (asset_id) REFERENCES assets(id) ON DELETE CASCADE,
     FOREIGN KEY (collection_id) REFERENCES collections(id) ON DELETE CASCADE,
-    FOREIGN KEY (group_id) REFERENCES asset_collection_assignments(id) ON DELETE CASCADE
+    FOREIGN KEY (group_id) REFERENCES asset_collection_membership(id) ON DELETE CASCADE
 );
 
 -- Indexes for faster lookups
-CREATE INDEX idx_asset_collection_asset ON asset_collection_assignments(asset_id);
-CREATE INDEX idx_asset_collection_collection ON asset_collection_assignments(collection_id);
-CREATE INDEX idx_asset_collection_group ON asset_collection_assignments(group_id);
+CREATE INDEX idx_asset_collection_asset ON asset_collection_membership(asset_id);
+CREATE INDEX idx_asset_collection_collection ON asset_collection_membership(collection_id);
+CREATE INDEX idx_asset_collection_group ON asset_collection_membership(group_id);
 
 -- Trigger to update the 'updated_at' timestamp when an assignment is modified
-CREATE TRIGGER update_asset_collection_assignments_timestamp 
-AFTER UPDATE ON asset_collection_assignments
+CREATE TRIGGER update_asset_collection_membership_timestamp 
+AFTER UPDATE ON asset_collection_membership
 FOR EACH ROW
 BEGIN
-    UPDATE asset_collection_assignments SET updated_at = CURRENT_TIMESTAMP WHERE id = OLD.id;
+    UPDATE asset_collection_membership SET updated_at = CURRENT_TIMESTAMP WHERE id = OLD.id;
 END;
 
 -- Asset Group Display Modes table
@@ -69,11 +69,11 @@ INSERT INTO asset_group_display_modes (name, description) VALUES
 
 -- Join table for asset groups and display modes
 CREATE TABLE asset_group_display_mode_configuration (
-    group_id INTEGER NOT NULL, -- References the group leader in asset_collection_assignments
+    group_id INTEGER NOT NULL, -- References the group leader in asset_collection_membership
     display_mode_id INTEGER NOT NULL,
     composite BOOLEAN NOT NULL DEFAULT 0, -- compose collection into a single image with an image map
     UNIQUE(group_id, display_mode_id),
     PRIMARY KEY (group_id, display_mode_id),
-    FOREIGN KEY (group_id) REFERENCES asset_collection_assignments(id) ON DELETE CASCADE,
+    FOREIGN KEY (group_id) REFERENCES asset_collection_membership(id) ON DELETE CASCADE,
     FOREIGN KEY (display_mode_id) REFERENCES asset_group_display_modes(id) ON DELETE RESTRICT
 );

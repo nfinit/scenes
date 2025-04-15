@@ -67,7 +67,7 @@ CREATE TABLE relationship_display_modes (
 -- Initialize with the basic relationship display modes
 INSERT INTO relationship_display_modes (name, description) VALUES 
 ('linked', 'Display as a text link to the collection'),
-('embedded', 'Display the collection contents within the parent');
+('embedded', 'Display the collection contents within the parent'),
 ('hidden', 'Do not display in parent view');
 
 -- Join table for collection relationships and display modes
