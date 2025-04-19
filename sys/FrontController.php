@@ -177,7 +177,7 @@ class FrontController
     {
         // This should be configured based on your deployment
         // For example, if your app is at /scenes/, the base path would be '/scenes'
-        return '/';
+        return '/scenes';
     }
     
     /**
