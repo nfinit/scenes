@@ -1,0 +1,7 @@
+Options +FollowSymLinks
+DirectoryIndex index.php index.html
+
+# Just in case PHP isn't set up to execute .php files
+<FilesMatch "\.php$">
+    SetHandler application/x-httpd-php
+</FilesMatch>
