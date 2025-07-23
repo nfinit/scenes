@@ -1,5 +1,16 @@
-Options +FollowSymLinks
 DirectoryIndex index.php index.html
+
+Options -Indexes
+Options +FollowSymLinks
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+# PHP settings (if needed)
+php_flag display_errors on
+php_value error_reporting E_ALL
 
 # Just in case PHP isn't set up to execute .php files
 <FilesMatch "\.php$">

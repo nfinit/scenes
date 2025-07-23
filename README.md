@@ -18,6 +18,6 @@ Scenes is a PHP application intended to be hosted by an Apache web server with a
 
 Quick start:
 - Install `php`, `apache2` (with `mod_php`) and `sqlite3` on the target server
-- Verify `mod_php` is enabled within Apache using `apachectl -M` (if `mod_php` is not enabled, search for it using `a2enmod -l` and then enabling it with `a2enmod <name>`)
+- Verify `mod_php` and `mod_rewrite` are enabled within Apache using `apachectl -M` (if either are not present in the list, search for it using `a2enmod -l` and then enable it with `a2enmod <module>`)
 - Allow `.htaccess` overrides in Apache by editing the document root directory configuration in `httpd.conf` or `default-server.conf`, depending on your implementation
 - Clone the repository to your document root directory 
